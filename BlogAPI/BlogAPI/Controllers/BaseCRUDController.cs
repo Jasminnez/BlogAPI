@@ -19,10 +19,15 @@ namespace BlogAPI.Controllers
         {
             return _crudService.Insert(request);
         }
-        [HttpPut("{id}")]
-        public T Update(int id, [FromBody] TUpdate request)
+        [HttpPut("{slug}")]
+        public virtual T Update(string slug, [FromBody] TUpdate request)
         {
-            return _crudService.Update(id, request);
+            return _crudService.Update(slug, request);
+        }
+        [HttpDelete("{slug}")]
+        public virtual T Delete(string slug)
+        {
+            return _crudService.Delete(slug);
         }
     }
 }

@@ -24,5 +24,33 @@ namespace BlogAPI.Services
             var list = entity.ToList();
             return _mapper.Map<List<Model.BlogPost>>(list);
         }
+        public override Model.BlogPost Update(string slug, BlogPostUpdateRequest request)
+        {
+            var set = Context.Set<Database.BlogPost>().AsQueryable();
+        
+            var entity = set.Where(x => x.Slug == slug);
+            
+            var list = entity.ToList().Single();
+            
+            _mapper.Map(request, list);
+        
+            Context.SaveChanges();
+        
+            return _mapper.Map<Model.BlogPost>(list);
+        }
+        public override Model.BlogPost Delete(string slug)
+        {
+            var set = Context.Set<Database.BlogPost>().AsQueryable();
+
+            var entity = set.Where(x => x.Slug == slug);
+
+            var list = entity.ToList().Single();
+
+            Context.Remove(list);
+
+            Context.SaveChanges();
+
+            return _mapper.Map<Model.BlogPost>(list);
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace BlogAPI.Mapping
             CreateMap<Database.BlogPost, Model.BlogPost>();
             CreateMap<BlogPostInsertRequest, Database.BlogPost>();
             CreateMap<BlogPostUpdateRequest, Database.BlogPost>();
+            CreateMap<Database.BlogPost, BlogPostUpdateRequest>();
         }
  
     }

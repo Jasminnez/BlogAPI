@@ -13,6 +13,11 @@ namespace BlogAPI.Services
         {
         }
 
+        public virtual T Delete(string slug)
+        {
+            throw new NotImplementedException(); //override method
+        }
+
         public virtual T Insert(TInsert request)
         {
             var set = Context.Set<TDb>();
@@ -26,17 +31,9 @@ namespace BlogAPI.Services
             return _mapper.Map<T>(entity);
         }
 
-        public virtual T Update(int id, TUpdate request)
+        public virtual T Update(string slug, TUpdate request)
         {
-            var set = Context.Set<TDb>();
-
-            var entity = set.Find(id);
-
-            _mapper.Map(request, entity);
-
-            Context.SaveChanges();
-
-            return _mapper.Map<T>(entity);
+            throw new NotImplementedException(); //override method
         }
     }
 }

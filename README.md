@@ -30,3 +30,22 @@ services.AddDbContext<BlogContext>(options =>
     Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection // Install automapper
 
     services.AddAutoMapper(typeof(Startup)); // Add automapper service in startup class in ConfigureServices
+
+    Create new folder Services
+    //for Get 
+    Create base Interface IBaseReadService with generics parameters and create base class BaseReadService
+    Create base controller BaseReadController
+    Create Interface IBlogPostService
+    Create class BlogPostService
+
+    Create new solution BlogAPI.Model
+    Create class BlogPost entire solution 
+    Create BlogSearchObject for search by TagName
+
+    Create new folder in main solution Mapping and class BlogProfile for Create Map
+    // for create, update and delete
+    Create ICRUDService interface and BaseCRUDService class in Services folder
+    Create BaseCRUDController in Controllers folder
+
+    Create Folder Request in BlogAPI.Model solution
+    Create BlogPostInsertRequest and BlogPostUpdateRequest in Request folder
