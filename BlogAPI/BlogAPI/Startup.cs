@@ -36,6 +36,7 @@ namespace BlogAPI
 
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IBlogPostService, BlogPostService>();
+            services.AddScoped<ITagListService, TagListService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

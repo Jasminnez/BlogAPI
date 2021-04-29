@@ -19,9 +19,9 @@ namespace BlogAPI.Services
 
         public virtual IEnumerable<T> Get(TSearch search = null)
         {
-            var entity = Context.Set<T>();
+            var entity = Context.Set<TDb>();
             var list = entity.ToList();
-            return list;
+            return _mapper.Map<List<T>>(list);
         }
     }
 }
